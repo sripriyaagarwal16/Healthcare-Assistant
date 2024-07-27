@@ -81,7 +81,7 @@ if submit and input:
     st.subheader("The Response is")
     for chunk in response:
         st.write(chunk.text)
-        st.session_state['chat_history'].append(("Bot", chunk.text))
+        st.session_state['chat_history'].append(("Sehat Sahayak", chunk.text))
 # Display the chat history in a sidebar
 with st.sidebar:
     st.subheader("Chat History")
