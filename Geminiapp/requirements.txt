@@ -1,3 +1,5 @@
 streamlit
-google-generativeai
-python-dotenv
+scikit-learn
+hummingbird-ml
+joblib
+numpy
