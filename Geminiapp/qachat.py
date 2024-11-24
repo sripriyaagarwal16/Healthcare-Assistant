@@ -58,8 +58,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
-# Initialize Google Maps client with your API key
-gmaps = googlemaps.Client(key=os.getenv("GOOGLE_MAPS_API_KEY"))
+
 
 # Function to get responses from the Gemini model
 def get_gemini_response(question):
@@ -73,25 +72,7 @@ def generate_meet_link():
     return meet_link
 
 # Function to display a map for order tracking
-def display_map(order_id):
-    try:
-        # Here, you would get the actual address or coordinates based on the order ID
-        # For demo purposes, let's use a fixed address
-        address = "1600 Amphitheatre Parkway, Mountain View, CA"  # Replace with actual order data
-        
-        # Geocode the address to get latitude and longitude
-        geocode_result = gmaps.geocode(address)
-        
-        if geocode_result:
-            location = geocode_result[0]['geometry']['location']
-            lat, lng = location['lat'], location['lng']
-            st.map([{'lat': lat, 'lon': lng}])  # Display the map with the order location
-        else:
-            st.write("Could not find location for this order ID.")
-    except GeocoderTimedOut:
-        st.write("Error: Geocoding request timed out. Please try again.")
-    except Exception as e:
-        st.write(f"An error occurred: {e}")
+
 
 # Initialize Streamlit app
 st.set_page_config(page_title="Q&A Demo")
